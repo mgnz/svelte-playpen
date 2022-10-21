@@ -3,5 +3,7 @@
     "tabWidth": 2,
     "useTabs": true,
     "singleQuote": true,
-    "bracketSpacing": true
+    "bracketSpacing": true,
+    "svelteStrictMode": true,
+    "allowShorthand": false
   }

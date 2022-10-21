@@ -5,7 +5,7 @@
 	};
 </script>
 
-<button on:click={increment}>
+<button on:click="{increment}">
 	<h1>count is {count}</h1>
 </button>
 
