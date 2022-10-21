@@ -3,10 +3,11 @@
     "strict": true,
     "sourceMap": true,
     "forceConsistentCasingInFileNames": true,
-
     "composite": true,
     "module": "ESNext",
     "moduleResolution": "Node"
   },
-  "include": ["vite.config.ts"]
+  "include": [
+    "vite.config.ts"
+  ]
 }
