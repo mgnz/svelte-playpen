@@ -9,7 +9,7 @@
 	<h1>count is {count}</h1>
 </button>
 
-<style type="text/scss">
+<style lang="scss">
 	button {
 		h1 {
 			color: red;
