@@ -12,7 +12,7 @@
 <style type="text/scss">
 	button {
 		h1 {
-			color: yellow;
+			color: red;
 		}
 	}
 </style>
