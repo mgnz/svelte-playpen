@@ -1,12 +1,17 @@
 <script lang="ts">
 	import 'bootstrap/dist/css/bootstrap.css';
+	import MobileToggle from '../lib/components/MobileToggle.svelte';
 	import Header from '../lib/components/Header.svelte';
 	import Hero from '../lib/components/Hero.svelte';
 </script>
 
+<MobileToggle />
+
 <Header />
 
-<Hero />
+<section>
+	<Hero />
+</section>
 
 <main id="main"></main>
 
