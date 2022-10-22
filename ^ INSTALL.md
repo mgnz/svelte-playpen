@@ -72,3 +72,10 @@ how to debug
 ## Tips
 
 `echo {} > .prettierignore`
+
+## Libraries
+
+<https://boxicons.com/usage>
+<https://svelte.dev/docs>
+<https://vitejs.dev/guide/why.html>
+<https://bootstrapmade.com/website-templates/>
