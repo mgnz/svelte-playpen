@@ -1,6 +1,6 @@
 <script lang="ts">
-	import 'boxicons/css/boxicons.min.css';
-	import 'bootstrap/dist/css/bootstrap.min.css';
+	import 'boxicons/css/boxicons.css';
+	import 'bootstrap/dist/css/bootstrap.css';
 	import profileImage from '../../assets/profile-img.jpg';
 </script>
 
@@ -17,7 +17,7 @@
 </div>
 
 <style lang="scss">
-	.profile {
+	#header .profile {
 		img {
 			margin: 15px auto;
 			display: block;

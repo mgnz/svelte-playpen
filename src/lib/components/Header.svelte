@@ -1,5 +1,5 @@
 <script lang="ts">
-	import 'bootstrap/dist/css/bootstrap.min.css';
+	import 'bootstrap/dist/css/bootstrap.css';
 	import HeaderNavbar from './HeaderNavbar.svelte';
 	import HeaderProfile from './HeaderProfile.svelte';
 </script>
