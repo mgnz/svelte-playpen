@@ -3,6 +3,7 @@
 	import MobileToggle from '../lib/components/MobileToggle.svelte';
 	import Header from '../lib/components/Header.svelte';
 	import Hero from '../lib/components/Hero.svelte';
+	import AboutSection from '../lib/components/AboutSection.svelte';
 </script>
 
 <MobileToggle />
@@ -13,7 +14,11 @@
 	<Hero />
 </section>
 
-<main id="main"></main>
+<main id="main">
+	<section>
+		<AboutSection />
+	</section>
+</main>
 
 <style lang="scss">
 	@import '../styles/app.scss';
