@@ -1,12 +1,13 @@
 <script lang="ts">
+	import 'bootstrap/dist/css/bootstrap.min.css';
 	import svelteLogo from '../assets/svelte.svg';
 	import Counter from '../lib/components/Counter.svelte';
 	import Header from '../lib/components/Header.svelte';
 </script>
 
-<main>
-	<Header />
+<Header />
 
+<main>
 	<div>
 		<a href="https://vitejs.dev" target="_blank" rel="noreferrer">
 			<img src="/vite.svg" class="logo" alt="Vite Logo" />

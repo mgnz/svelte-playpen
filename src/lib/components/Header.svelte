@@ -1,4 +1,5 @@
 <script lang="ts">
+	import 'bootstrap/dist/css/bootstrap.min.css';
 	import HeaderNavbar from './HeaderNavbar.svelte';
 	import HeaderProfile from './HeaderProfile.svelte';
 </script>
@@ -6,12 +7,10 @@
 <header id="header">
 	<div class="d-flex flex-column">
 		<HeaderProfile />
-
 		<HeaderNavbar />
 	</div>
 </header>
 
-<!-- End Header -->
 <style lang="scss">
 	#header {
 		position: fixed;
