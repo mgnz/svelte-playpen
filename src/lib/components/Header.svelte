@@ -12,6 +12,8 @@
 </header>
 
 <style lang="scss">
+	@import '../../styles/app.scss';
+
 	#header {
 		position: fixed;
 		top: 0;
@@ -26,7 +28,7 @@
 		overflow-y: auto;
 	}
 
-	@media (max-width: 1199px) {
+	@media (max-width: $global-width-lrg) {
 		#header {
 			left: -300px;
 		}

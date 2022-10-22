@@ -33,11 +33,12 @@
 </main>
 
 <style lang="scss">
+	@import '../styles/app.scss';
 	#main {
 		margin-left: 300px;
 	}
 
-	@media (max-width: 1199px) {
+	@media (max-width: $global-width-lrg) {
 		#main {
 			margin-left: 0;
 		}
