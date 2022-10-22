@@ -4,6 +4,7 @@
 	import Header from '../lib/components/Header.svelte';
 	import Hero from '../lib/components/Hero.svelte';
 	import AboutSection from '../lib/components/AboutSection.svelte';
+	import FactsSection from '../lib/components/FactsSection.svelte';
 </script>
 
 <MobileToggle />
@@ -17,6 +18,10 @@
 <main id="main">
 	<section>
 		<AboutSection />
+	</section>
+
+	<section>
+		<FactsSection />
 	</section>
 </main>
 
