@@ -33,6 +33,16 @@
 </main>
 
 <style lang="scss">
+	#main {
+		margin-left: 300px;
+	}
+
+	@media (max-width: 1199px) {
+		#main {
+			margin-left: 0;
+		}
+	}
+
 	// legacy bollocks
 	.legacy-main {
 		.logo {

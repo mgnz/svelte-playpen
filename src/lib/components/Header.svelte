@@ -25,4 +25,10 @@
 		background: #040b14;
 		overflow-y: auto;
 	}
+
+	@media (max-width: 1199px) {
+		#header {
+			left: -300px;
+		}
+	}
 </style>
