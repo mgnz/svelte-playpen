@@ -69,3 +69,7 @@ how to debug
 https://www.reddit.com/r/sveltejs/comments/qub9vt/configuring_vscode_for_svelte_sveltekit/
 https://www.reddit.com/r/sveltejs/comments/pahufd/how_do_you_debug_sveltekit_serverside_code_in/
 https://www.youtube.com/watch?v=ubeOpB9FlZE
+
+## Tips
+
+`echo {} > .prettierignore`
