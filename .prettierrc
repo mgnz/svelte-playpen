@@ -1,9 +1,10 @@
 {
-    "trailingComma": "es5",
-    "tabWidth": 2,
-    "useTabs": true,
-    "singleQuote": true,
-    "bracketSpacing": true,
-    "svelteStrictMode": true,
-    "allowShorthand": false
-  }
+  "trailingComma": "es5",
+  "tabWidth": 2,
+  "printWidth": 256,
+  "useTabs": true,
+  "singleQuote": true,
+  "bracketSpacing": true,
+  "svelteStrictMode": true,
+  "allowShorthand": false
+}
