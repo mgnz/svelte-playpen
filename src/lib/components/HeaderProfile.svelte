@@ -1,4 +1,5 @@
 <script lang="ts">
+	import 'boxicons';
 	import profileImage from '../../assets/profile-img.jpg';
 </script>
 
@@ -6,11 +7,11 @@
 	<img src="{profileImage}" alt="" class="img-fluid rounded-circle" />
 	<h1 class="text-light"><a href="index.html">Alex Smith</a></h1>
 	<div class="social-links mt-3 text-center">
-		<a href="#" class="twitter"><box-icon name="bx bxl-twitter"></box-icon></a>
-		<a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-		<a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-		<a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-		<a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+		<a href="#"><box-icon type="logo" name="twitter" color="white"></box-icon></a>
+		<a href="#"><box-icon type="logo" name="facebook" color="white"></box-icon></a>
+		<a href="#"><box-icon type="logo" name="instagram" color="white"></box-icon></a>
+		<a href="#"><box-icon type="logo" name="google-plus" color="white"></box-icon></a>
+		<a href="#"><box-icon type="logo" name="linkedin" color="white"></box-icon></a>
 	</div>
 </div>
 
