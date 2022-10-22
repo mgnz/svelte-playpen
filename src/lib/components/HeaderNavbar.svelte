@@ -1,4 +1,6 @@
 <script lang="ts">
+	import 'boxicons/css/boxicons.min.css';
+	import 'bootstrap/dist/css/bootstrap.min.css';
 </script>
 
 <nav id="navbar" class="nav-menu navbar">
