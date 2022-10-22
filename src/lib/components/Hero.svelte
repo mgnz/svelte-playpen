@@ -1,5 +1,18 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
+	import Typed from 'typed.js';
+
 	import heroBackground from '../../assets/hero-bg.jpg';
+
+	var options = {
+		strings: ['Designer', 'Developer', 'Freelancer', 'Photographer'],
+		typeSpeed: 40,
+		loop: true,
+	};
+
+	onMount(async () => {
+		var typed = new Typed('.typed', options);
+	});
 </script>
 
 <section
@@ -14,7 +27,7 @@
 	<!-- usage of inline style is naughty; but i have no idea how to pass the profile image down to the style -->
 	<div class="hero-container" data-aos="fade-in">
 		<h1>Alex Smith</h1>
-		<p>I'm <span class="typed" data-typed-items="Designer, Developer, Freelancer, Photographer"></span></p>
+		<p>I'm <span class="typed"></span></p>
 	</div>
 </section>
 
