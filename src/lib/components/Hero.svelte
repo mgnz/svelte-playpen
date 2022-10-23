@@ -32,6 +32,7 @@
 </section>
 
 <style lang="scss">
+	@import '../../styles/section.scss';
 	@import '../../styles/app.scss';
 
 	#hero {

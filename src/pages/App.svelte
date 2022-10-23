@@ -37,26 +37,16 @@
 
 <Header />
 
-<section>
-	<Hero />
-</section>
+<Hero />
 
 <main id="main">
-	<section>
-		<AboutSection />
-	</section>
+	<AboutSection />
 
-	<section>
-		<FactsSection />
-	</section>
+	<FactsSection />
 
-	<section>
-		<SkillsSection />
-	</section>
+	<SkillsSection />
 
-	<section>
-		<ResumeSection />
-	</section>
+	<ResumeSection />
 </main>
 
 <style lang="scss">
@@ -69,47 +59,6 @@
 	@media (max-width: $global-width-lrg) {
 		#main {
 			margin-left: 0;
-		}
-	}
-
-	/*--------------------------------------------------------------
-	# Sections General
-	--------------------------------------------------------------*/
-
-	section {
-		padding: 60px 0;
-		overflow: hidden;
-	}
-
-	.section-bg {
-		background: #f5f8fd;
-	}
-
-	.section-title {
-		padding-bottom: 30px;
-
-		h2 {
-			font-size: 32px;
-			font-weight: bold;
-			margin-bottom: 20px;
-			padding-bottom: 20px;
-			position: relative;
-			color: #173b6c;
-
-			&::after {
-				content: '';
-				position: absolute;
-				display: block;
-				width: 50px;
-				height: 3px;
-				background: #149ddd;
-				bottom: 0;
-				left: 0;
-			}
-		}
-
-		p {
-			margin-bottom: 0;
 		}
 	}
 </style>

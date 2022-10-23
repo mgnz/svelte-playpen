@@ -7,7 +7,7 @@
 	onMount(async () => {});
 </script>
 
-<div id="facts" class="facts">
+<section id="facts" class="facts">
 	<div class="container">
 		<div class="section-title">
 			<h2>Facts</h2>
@@ -56,9 +56,10 @@
 			</div>
 		</div>
 	</div>
-</div>
+</section>
 
 <style lang="scss">
+	@import '../../styles/section.scss';
 	.facts {
 		padding-bottom: 30px;
 

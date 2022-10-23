@@ -4,7 +4,7 @@
 	import profileImage from '../../assets/profile-img.jpg';
 </script>
 
-<div id="about" class="about">
+<section id="about" class="about">
 	<div class="container">
 		<div class="section-title">
 			<h2>About</h2>
@@ -58,9 +58,10 @@
 			</div>
 		</div>
 	</div>
-</div>
+</section>
 
 <style lang="scss">
+	@import '../../styles/section.scss';
 	#about .content {
 		h3 {
 			font-weight: 700;

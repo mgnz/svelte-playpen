@@ -3,7 +3,7 @@
 	import ResumeSectionItem from './ResumeSectionItem.svelte';
 </script>
 
-<div id="resume" class="resume">
+<section id="resume" class="resume">
 	<div class="container">
 		<div class="section-title">
 			<h2>Resume</h2>
@@ -85,9 +85,10 @@
 			</div>
 		</div>
 	</div>
-</div>
+</section>
 
 <style lang="scss">
+	@import '../../styles/section.scss';
 	#resume {
 		.resume-title {
 			font-size: 26px;

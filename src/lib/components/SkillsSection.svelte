@@ -12,7 +12,7 @@
         - logic that puls ara-valuenow and updates the width of the element
 -->
 
-<div id="skills" class="skills section-bg">
+<section id="skills" class="skills section-bg">
 	<div class="container">
 		<div class="section-title">
 			<h2>Skills</h2>
@@ -83,9 +83,10 @@
 			</div>
 		</div>
 	</div>
-</div>
+</section>
 
 <style lang="scss">
+	@import '../../styles/section.scss';
 	.skills {
 		.progress {
 			height: 60px;
