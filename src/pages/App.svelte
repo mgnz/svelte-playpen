@@ -7,6 +7,7 @@
 	import Hero from '../lib/components/Hero.svelte';
 	import AboutSection from '../lib/components/AboutSection.svelte';
 	import FactsSection from '../lib/components/FactsSection.svelte';
+	import SkillsSection from '../lib/components/SkillsSection.svelte';
 
 	import AOS from 'aos';
 	import 'aos/dist/aos.css'; // You can also use <link> for styles
@@ -46,6 +47,10 @@
 
 	<section>
 		<FactsSection />
+	</section>
+
+	<section>
+		<SkillsSection />
 	</section>
 </main>
 
