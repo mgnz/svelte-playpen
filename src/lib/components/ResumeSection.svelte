@@ -1,6 +1,6 @@
 <script lang="ts">
 	import 'bootstrap/dist/css/bootstrap.css';
-	// import ResumeSectionItem from '../lib/components/ResumeSectionItem.svelte';
+	import ResumeSectionItem from './ResumeSectionItem.svelte';
 </script>
 
 <div id="resume" class="resume">
@@ -17,46 +17,44 @@
 		<div class="row">
 			<div class="col-lg-6" data-aos="fade-up">
 				<h3 class="resume-title">Sumary</h3>
-				<div class="resume-item pb-0">
-					<h4>Alex Smith</h4>
-					<p>
-						<em
-							>Innovative and deadline-driven Graphic Designer with 3+ years of experience designing and developing
-							user-centered digital/print marketing material from initial concept to final, polished deliverable.</em>
-					</p>
+				<ResumeSectionItem
+					role="Alex Smith"
+					range=""
+					location="Innovative and deadline-driven Graphic Designer with 3+ years of experience designing and developing
+                    user-centered digital/print marketing material from initial concept to final, polished deliverable.">
 					<ul>
 						<li>Portland par 127,Orlando, FL</li>
 						<li>(123) 456-7891</li>
 						<li>alice.barkley@example.com</li>
 					</ul>
-				</div>
-
+				</ResumeSectionItem>
 				<h3 class="resume-title">Education</h3>
-				<div class="resume-item">
-					<h4>Master of Fine Arts &amp; Graphic Design</h4>
-					<h5>2015 - 2016</h5>
-					<p><em>Rochester Institute of Technology, Rochester, NY</em></p>
+				<ResumeSectionItem
+					role="Master of Fine Arts &amp; Graphic Design"
+					range="2015 - 2016"
+					location="Rochester Institute of Technology, Rochester, NY">
 					<p>
 						Qui deserunt veniam. Et sed aliquam labore tempore sed quisquam iusto autem sit. Ea vero voluptatum qui ut
 						dignissimos deleniti nerada porti sand markend
 					</p>
-				</div>
-				<div class="resume-item">
-					<h4>Bachelor of Fine Arts &amp; Graphic Design</h4>
-					<h5>2010 - 2014</h5>
-					<p><em>Rochester Institute of Technology, Rochester, NY</em></p>
+				</ResumeSectionItem>
+				<ResumeSectionItem
+					role="Bachelor of Fine Arts &amp; Graphic Design"
+					range="2010 - 2014"
+					location="Rochester Institute of Technology, Rochester, NY">
 					<p>
-						Quia nobis sequi est occaecati aut. Repudiandae et iusto quae reiciendis et quis Eius vel ratione eius unde
-						vitae rerum voluptates asperiores voluptatem Earum molestiae consequatur neque etlon sader mart dila
+						Qui deserunt veniam. Et sed aliquam labore tempore sed quisquam iusto autem sit. Ea vero voluptatum qui ut
+						dignissimos deleniti nerada porti sand markend
 					</p>
-				</div>
+				</ResumeSectionItem>
 			</div>
 			<div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
 				<h3 class="resume-title">Professional Experience</h3>
-				<div class="resume-item">
-					<h4>Senior graphic design specialist</h4>
-					<h5>2019 - Present</h5>
-					<p><em>Experion, New York, NY </em></p>
+
+				<ResumeSectionItem
+					role="Senior graphic design specialist"
+					range="2019 - Present"
+					location="Experion, New York, NY ">
 					<ul>
 						<li>
 							Lead in the design, development, and implementation of the graphic, layout, and production communication
@@ -70,11 +68,11 @@
 						</li>
 						<li>Oversee the efficient use of production project budgets ranging from $2,000 - $25,000</li>
 					</ul>
-				</div>
-				<div class="resume-item">
-					<h4>Graphic design specialist</h4>
-					<h5>2017 - 2018</h5>
-					<p><em>Stepping Stone Advertising, New York, NY</em></p>
+				</ResumeSectionItem>
+				<ResumeSectionItem
+					role="Graphic design specialist"
+					range="2017 - 2018"
+					location="Stepping Stone Advertising, New York, NY">
 					<ul>
 						<li>
 							Developed numerous marketing programs (logos, brochures,infographics, presentations, and advertisements).
@@ -83,70 +81,20 @@
 						<li>Recommended and consulted with clients on the most appropriate graphic design</li>
 						<li>Created 4+ design presentations and proposals a month for clients and account managers</li>
 					</ul>
-				</div>
+				</ResumeSectionItem>
 			</div>
 		</div>
 	</div>
 </div>
 
 <style lang="scss">
-	.resume {
+	#resume {
 		.resume-title {
 			font-size: 26px;
 			font-weight: 700;
 			margin-top: 20px;
 			margin-bottom: 20px;
 			color: #050d18;
-		}
-
-		.resume-item {
-			padding: 0 0 20px 20px;
-			margin-top: -2px;
-			border-left: 2px solid #1f5297;
-			position: relative;
-
-			h4 {
-				line-height: 18px;
-				font-size: 18px;
-				font-weight: 600;
-				text-transform: uppercase;
-				font-family: 'Poppins', sans-serif;
-				color: #050d18;
-				margin-bottom: 10px;
-			}
-
-			h5 {
-				font-size: 16px;
-				background: #e4edf9;
-				padding: 5px 15px;
-				display: inline-block;
-				font-weight: 600;
-				margin-bottom: 10px;
-			}
-
-			ul {
-				padding-left: 20px;
-
-				li {
-					padding-bottom: 10px;
-				}
-			}
-
-			&:last-child {
-				padding-bottom: 0;
-			}
-
-			&::before {
-				content: '';
-				position: absolute;
-				width: 16px;
-				height: 16px;
-				border-radius: 50px;
-				left: -9px;
-				top: 0;
-				background: #fff;
-				border: 2px solid #1f5297;
-			}
 		}
 	}
 </style>
