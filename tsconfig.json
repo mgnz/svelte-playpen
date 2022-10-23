@@ -17,10 +17,9 @@
     "allowJs": true,
     "checkJs": true,
     "isolatedModules": true,
-    "typeRoots": [
-      "typings/**/*.d.ts",
-      "node_modules/@types/"
-    ]
+    // "typeRoots": [
+    //   "./node_modules/@types/"
+    // ]
   },
   "include": [
     "src/**/*.d.ts",
