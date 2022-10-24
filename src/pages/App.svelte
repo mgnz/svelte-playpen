@@ -9,6 +9,7 @@
 	import FactsSection from '../lib/components/FactsSection.svelte';
 	import SkillsSection from '../lib/components/SkillsSection.svelte';
 	import ResumeSection from '../lib/components/ResumeSection.svelte';
+	import PortfolioSection from '../lib/components/PortfolioSection.svelte';
 
 	import AOS from 'aos';
 	import 'aos/dist/aos.css'; // You can also use <link> for styles
@@ -47,6 +48,8 @@
 	<SkillsSection />
 
 	<ResumeSection />
+
+	<PortfolioSection />
 </main>
 
 <style lang="scss">

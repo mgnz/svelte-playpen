@@ -1,6 +1,46 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
+
 	import 'bootstrap/dist/css/bootstrap.css';
 	import 'boxicons/css/boxicons.css';
+
+	import AOS from 'aos';
+	import 'aos/dist/aos.css'; // You can also use <link> for styles
+
+	import PortfolioSectionItem from './PortfolioSectionItem.svelte';
+
+	import portfolio1 from '../../assets/portfolio/portfolio-1.jpg';
+	import portfolio2 from '../../assets/portfolio/portfolio-2.jpg';
+	import portfolio3 from '../../assets/portfolio/portfolio-3.jpg';
+	import portfolio4 from '../../assets/portfolio/portfolio-4.jpg';
+	import portfolio5 from '../../assets/portfolio/portfolio-5.jpg';
+	import portfolio6 from '../../assets/portfolio/portfolio-6.jpg';
+	import portfolio7 from '../../assets/portfolio/portfolio-7.jpg';
+	import portfolio8 from '../../assets/portfolio/portfolio-8.jpg';
+	import portfolio9 from '../../assets/portfolio/portfolio-9.jpg';
+
+	let data = [
+		{ filterType: 'filter-app', imagePath: `${portfolio1}`, portfolioSlug: 1 },
+		{ filterType: 'filter-web', imagePath: `${portfolio2}`, portfolioSlug: 2 },
+		{ filterType: 'filter-app', imagePath: `${portfolio3}`, portfolioSlug: 3 },
+		{ filterType: 'filter-card', imagePath: `${portfolio4}`, portfolioSlug: 4 },
+		{ filterType: 'filter-web', imagePath: `${portfolio5}`, portfolioSlug: 5 },
+		{ filterType: 'filter-app', imagePath: `${portfolio6}`, portfolioSlug: 6 },
+		{ filterType: 'filter-card', imagePath: `${portfolio7}`, portfolioSlug: 7 },
+		{ filterType: 'filter-card', imagePath: `${portfolio8}`, portfolioSlug: 8 },
+		{ filterType: 'filter-web', imagePath: `${portfolio9}`, portfolioSlug: 9 },
+	];
+
+	let selectedFilter: string;
+	let filterSelectionClick = (activeFilter: string): any | null => {
+		selectedFilter = activeFilter;
+		console.log(activeFilter);
+	};
+	let filterSelectionKeyPress = (activeFilter: string): any | null => {
+		selectedFilter = activeFilter;
+	};
+
+	onMount(async () => {});
 </script>
 
 <!--
@@ -27,146 +67,52 @@
 		<div class="row" data-aos="fade-up">
 			<div class="col-lg-12 d-flex justify-content-center">
 				<ul id="portfolio-flters">
-					<li data-filter="*" class="filter-active">All</li>
-					<li data-filter=".filter-app">App</li>
-					<li data-filter=".filter-card">Card</li>
-					<li data-filter=".filter-web">Web</li>
+					<li
+						data-filter="*"
+						class:filter-active="{selectedFilter === '*'}"
+						on:keypress="{filterSelectionKeyPress('*')}"
+						on:click="{filterSelectionClick('*')}">
+						All
+					</li>
+					<li
+						data-filter=".filter-app"
+						class:filter-active="{selectedFilter === 'filter-app'}"
+						on:keypress="{filterSelectionKeyPress('filter-app')}"
+						on:click="{filterSelectionClick('filter-app')}">
+						App
+					</li>
+					<li
+						data-filter=".filter-card"
+						class:filter-active="{selectedFilter === 'filter-card'}"
+						on:keypress="{filterSelectionKeyPress('filter-card')}"
+						on:click="{filterSelectionClick('filter-card')}">
+						Card
+					</li>
+					<li
+						data-filter=".filter-web"
+						class:filter-active="{selectedFilter === 'filter-web'}"
+						on:keypress="{filterSelectionKeyPress('filter-web')}"
+						on:click="{filterSelectionClick('filter-web')}">
+						Web
+					</li>
 				</ul>
 			</div>
 		</div>
 
-		<div class="row portfolio-container" data-aos="fade-up" data-aos-delay="100">
-			<div class="col-lg-4 col-md-6 portfolio-item filter-app">
-				<div class="portfolio-wrap">
-					<img src="assets/img/portfolio/portfolio-1.jpg" class="img-fluid" alt="" />
-					<div class="portfolio-links">
-						<a
-							href="assets/img/portfolio/portfolio-1.jpg"
-							data-gallery="portfolioGallery"
-							class="portfolio-lightbox"
-							title="App 1"><i class="bx bx-plus"></i></a>
-						<a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-					</div>
-				</div>
-			</div>
-
-			<div class="col-lg-4 col-md-6 portfolio-item filter-web">
-				<div class="portfolio-wrap">
-					<img src="assets/img/portfolio/portfolio-2.jpg" class="img-fluid" alt="" />
-					<div class="portfolio-links">
-						<a
-							href="assets/img/portfolio/portfolio-2.jpg"
-							data-gallery="portfolioGallery"
-							class="portfolio-lightbox"
-							title="Web 3"><i class="bx bx-plus"></i></a>
-						<a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-					</div>
-				</div>
-			</div>
-
-			<div class="col-lg-4 col-md-6 portfolio-item filter-app">
-				<div class="portfolio-wrap">
-					<img src="assets/img/portfolio/portfolio-3.jpg" class="img-fluid" alt="" />
-					<div class="portfolio-links">
-						<a
-							href="assets/img/portfolio/portfolio-3.jpg"
-							data-gallery="portfolioGallery"
-							class="portfolio-lightbox"
-							title="App 2"><i class="bx bx-plus"></i></a>
-						<a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-					</div>
-				</div>
-			</div>
-
-			<div class="col-lg-4 col-md-6 portfolio-item filter-card">
-				<div class="portfolio-wrap">
-					<img src="assets/img/portfolio/portfolio-4.jpg" class="img-fluid" alt="" />
-					<div class="portfolio-links">
-						<a
-							href="assets/img/portfolio/portfolio-4.jpg"
-							data-gallery="portfolioGallery"
-							class="portfolio-lightbox"
-							title="Card 2"><i class="bx bx-plus"></i></a>
-						<a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-					</div>
-				</div>
-			</div>
-
-			<div class="col-lg-4 col-md-6 portfolio-item filter-web">
-				<div class="portfolio-wrap">
-					<img src="assets/img/portfolio/portfolio-5.jpg" class="img-fluid" alt="" />
-					<div class="portfolio-links">
-						<a
-							href="assets/img/portfolio/portfolio-5.jpg"
-							data-gallery="portfolioGallery"
-							class="portfolio-lightbox"
-							title="Web 2"><i class="bx bx-plus"></i></a>
-						<a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-					</div>
-				</div>
-			</div>
-
-			<div class="col-lg-4 col-md-6 portfolio-item filter-app">
-				<div class="portfolio-wrap">
-					<img src="assets/img/portfolio/portfolio-6.jpg" class="img-fluid" alt="" />
-					<div class="portfolio-links">
-						<a
-							href="assets/img/portfolio/portfolio-6.jpg"
-							data-gallery="portfolioGallery"
-							class="portfolio-lightbox"
-							title="App 3"><i class="bx bx-plus"></i></a>
-						<a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-					</div>
-				</div>
-			</div>
-
-			<div class="col-lg-4 col-md-6 portfolio-item filter-card">
-				<div class="portfolio-wrap">
-					<img src="assets/img/portfolio/portfolio-7.jpg" class="img-fluid" alt="" />
-					<div class="portfolio-links">
-						<a
-							href="assets/img/portfolio/portfolio-7.jpg"
-							data-gallery="portfolioGallery"
-							class="portfolio-lightbox"
-							title="Card 1"><i class="bx bx-plus"></i></a>
-						<a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-					</div>
-				</div>
-			</div>
-
-			<div class="col-lg-4 col-md-6 portfolio-item filter-card">
-				<div class="portfolio-wrap">
-					<img src="assets/img/portfolio/portfolio-8.jpg" class="img-fluid" alt="" />
-					<div class="portfolio-links">
-						<a
-							href="assets/img/portfolio/portfolio-8.jpg"
-							data-gallery="portfolioGallery"
-							class="portfolio-lightbox"
-							title="Card 3"><i class="bx bx-plus"></i></a>
-						<a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-					</div>
-				</div>
-			</div>
-
-			<div class="col-lg-4 col-md-6 portfolio-item filter-web">
-				<div class="portfolio-wrap">
-					<img src="assets/img/portfolio/portfolio-9.jpg" class="img-fluid" alt="" />
-					<div class="portfolio-links">
-						<a
-							href="assets/img/portfolio/portfolio-9.jpg"
-							data-gallery="portfolioGallery"
-							class="portfolio-lightbox"
-							title="Web 3"><i class="bx bx-plus"></i></a>
-						<a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-					</div>
-				</div>
-			</div>
-		</div>
+		<PortfolioSectionItem filterType="filter-app" imagePath="{portfolio1}" portfolioSlug="1" />
+		<PortfolioSectionItem filterType="filter-web" imagePath="{portfolio2}" portfolioSlug="2" />
+		<PortfolioSectionItem filterType="filter-app" imagePath="{portfolio3}" portfolioSlug="3" />
+		<PortfolioSectionItem filterType="filter-card" imagePath="{portfolio4}" portfolioSlug="4" />
+		<PortfolioSectionItem filterType="filter-web" imagePath="{portfolio5}" portfolioSlug="5" />
+		<PortfolioSectionItem filterType="filter-app" imagePath="{portfolio6}" portfolioSlug="6" />
+		<PortfolioSectionItem filterType="filter-card" imagePath="{portfolio7}" portfolioSlug="7" />
+		<PortfolioSectionItem filterType="filter-card" imagePath="{portfolio8}" portfolioSlug="8" />
+		<PortfolioSectionItem filterType="filter-web" imagePath="{portfolio9}" portfolioSlug="9" />
 	</div>
 </section>
 
 <style lang="scss">
-	.portfolio {
+	#portfolio {
 		.portfolio-item {
 			margin-bottom: 30px;
 		}
