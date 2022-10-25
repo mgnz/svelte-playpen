@@ -9,6 +9,8 @@
 
 	import PortfolioSectionItem from './PortfolioSectionItem.svelte';
 
+	// for now : later we will store a path to the asset, and its loaded
+	// from the statically generated site artifact folder
 	import portfolio1 from '../../assets/portfolio/portfolio-1.jpg';
 	import portfolio2 from '../../assets/portfolio/portfolio-2.jpg';
 	import portfolio3 from '../../assets/portfolio/portfolio-3.jpg';
@@ -19,7 +21,7 @@
 	import portfolio8 from '../../assets/portfolio/portfolio-8.jpg';
 	import portfolio9 from '../../assets/portfolio/portfolio-9.jpg';
 
-	let data = [
+	let portfolioItems = [
 		{ filterType: 'filter-app', imagePath: `${portfolio1}`, portfolioSlug: 1 },
 		{ filterType: 'filter-web', imagePath: `${portfolio2}`, portfolioSlug: 2 },
 		{ filterType: 'filter-app', imagePath: `${portfolio3}`, portfolioSlug: 3 },
@@ -31,27 +33,37 @@
 		{ filterType: 'filter-web', imagePath: `${portfolio9}`, portfolioSlug: 9 },
 	];
 
-	let selectedFilter: string;
-	let filterSelectionClick = (activeFilter: string, event: MouseEvent): any | null => {
-		selectedFilter = activeFilter;
-		console.log(activeFilter);
+	let portfolioFilters = [
+		{ dataFilter: '*', label: 'All' },
+		{ dataFilter: 'filter-web', label: 'Web' },
+		{ dataFilter: 'filter-card', label: 'Card' },
+		{ dataFilter: 'filter-app', label: 'App' },
+	];
+
+	// when we load we want a default element highlighted
+	// could also just init this on-mount
+	const defaultSelectedPortfolioFilter = '*';
+	let selectedPortfolioFilter: string | null;
+	$: if (selectedPortfolioFilter == null) {
+		console.log('getSelectedPortfolioFilter: default');
+		selectedPortfolioFilter = defaultSelectedPortfolioFilter;
+	}
+
+	let filterSelectionClick = (activeFilter: string, event: MouseEvent): void => {
+		selectedPortfolioFilter = activeFilter;
+		console.log('filterSelectionClick ' + activeFilter);
+
+		// AOS.refresh();
 	};
-	let filterSelectionKeyPress = (activeFilter: string, event: KeyboardEvent): any | null => {
-		selectedFilter = activeFilter;
+	let filterSelectionKeyPress = (activeFilter: string, event: KeyboardEvent): void => {
+		selectedPortfolioFilter = activeFilter;
+		console.log('filterSelectionKeyPress ' + activeFilter);
+
+		// AOS.refresh();
 	};
 
 	onMount(async () => {});
 </script>
-
-<!--
-    consider
-    - seperate the item
-    - abstract data layer and load items
-    - use event handlers to do sorting and filtering
-
-    links
-    - https://svelte.dev/repl/a4684fe5be9a4c63963bb128c4adf056?version=3.23.2
--->
 
 <section id="portfolio" class="portfolio section-bg">
 	<div class="container">
@@ -67,56 +79,30 @@
 		<div class="row" data-aos="fade-up">
 			<div class="col-lg-12 d-flex justify-content-center">
 				<ul id="portfolio-flters">
-					<li
-						data-filter="*"
-						class:filter-active="{selectedFilter === '*'}"
-						on:keypress="{(event) => filterSelectionKeyPress('*', event)}"
-						on:click="{(event) => filterSelectionClick('*', event)}">
-						All
-					</li>
-					<li
-						data-filter=".filter-app"
-						class:filter-active="{selectedFilter === 'filter-app'}"
-						on:keypress="{(event) => filterSelectionKeyPress('filter-app', event)}"
-						on:click="{(event) => filterSelectionClick('filter-app', event)}">
-						App
-					</li>
-					<li
-						data-filter=".filter-card"
-						class:filter-active="{selectedFilter === 'filter-card'}"
-						on:keypress="{(event) => filterSelectionKeyPress('filter-card', event)}"
-						on:click="{(event) => filterSelectionClick('filter-card', event)}">
-						Card
-					</li>
-					<li
-						data-filter=".filter-web"
-						class:filter-active="{selectedFilter === 'filter-web'}"
-						on:keypress="{(event) => filterSelectionKeyPress('filter-web', event)}"
-						on:click="{(event) => filterSelectionClick('filter-web', event)}">
-						Web
-					</li>
+					{#each portfolioFilters as item, i (item.dataFilter)}
+						<li
+							data-filter=".{item.dataFilter}"
+							class:filter-active="{selectedPortfolioFilter === item.dataFilter}"
+							on:keypress="{(event) => filterSelectionKeyPress(item.dataFilter, event)}"
+							on:click="{(event) => filterSelectionClick(item.dataFilter, event)}">
+							{item.label}
+						</li>
+					{/each}
 				</ul>
 			</div>
 		</div>
 
-		<PortfolioSectionItem filterType="filter-app" imagePath="{portfolio1}" portfolioSlug="1" />
-		<PortfolioSectionItem filterType="filter-web" imagePath="{portfolio2}" portfolioSlug="2" />
-		<PortfolioSectionItem filterType="filter-app" imagePath="{portfolio3}" portfolioSlug="3" />
-		<PortfolioSectionItem filterType="filter-card" imagePath="{portfolio4}" portfolioSlug="4" />
-		<PortfolioSectionItem filterType="filter-web" imagePath="{portfolio5}" portfolioSlug="5" />
-		<PortfolioSectionItem filterType="filter-app" imagePath="{portfolio6}" portfolioSlug="6" />
-		<PortfolioSectionItem filterType="filter-card" imagePath="{portfolio7}" portfolioSlug="7" />
-		<PortfolioSectionItem filterType="filter-card" imagePath="{portfolio8}" portfolioSlug="8" />
-		<PortfolioSectionItem filterType="filter-web" imagePath="{portfolio9}" portfolioSlug="9" />
+		{#each portfolioItems as item, i (item.portfolioSlug)}
+			<PortfolioSectionItem
+				filterType="{item.filterType}"
+				imagePath="{item.imagePath}"
+				portfolioSlug="{item.portfolioSlug}" />
+		{/each}
 	</div>
 </section>
 
 <style lang="scss">
 	#portfolio {
-		.portfolio-item {
-			margin-bottom: 30px;
-		}
-
 		#portfolio-flters {
 			padding: 0;
 			margin: 0 auto 35px auto;
@@ -145,70 +131,6 @@
 
 				&:last-child {
 					margin-right: 0;
-				}
-			}
-		}
-
-		.portfolio-wrap {
-			transition: 0.3s;
-			position: relative;
-			overflow: hidden;
-			z-index: 1;
-
-			&::before {
-				content: '';
-				background: rgba(255, 255, 255, 0.5);
-				position: absolute;
-				left: 0;
-				right: 0;
-				top: 0;
-				bottom: 0;
-				transition: all ease-in-out 0.3s;
-				z-index: 2;
-				opacity: 0;
-			}
-
-			.portfolio-links {
-				opacity: 1;
-				left: 0;
-				right: 0;
-				bottom: -60px;
-				z-index: 3;
-				position: absolute;
-				transition: all ease-in-out 0.3s;
-				display: flex;
-				justify-content: center;
-
-				a {
-					color: #fff;
-					font-size: 28px;
-					text-align: center;
-					background: rgba(20, 157, 221, 0.75);
-					transition: 0.3s;
-					width: 50%;
-
-					&:hover {
-						background: rgba(20, 157, 221, 0.95);
-					}
-
-					+ a {
-						border-left: 1px solid #37b3ed;
-					}
-				}
-			}
-
-			&:hover {
-				&::before {
-					top: 0;
-					left: 0;
-					right: 0;
-					bottom: 0;
-					opacity: 1;
-				}
-
-				.portfolio-links {
-					opacity: 1;
-					bottom: 0;
 				}
 			}
 		}
