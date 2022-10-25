@@ -2,10 +2,6 @@
 	import { onMount } from 'svelte';
 
 	import 'bootstrap/dist/css/bootstrap.css';
-	import 'boxicons/css/boxicons.css';
-
-	import AOS from 'aos';
-	import 'aos/dist/aos.css'; // You can also use <link> for styles
 
 	import PortfolioSectionItem from './PortfolioSectionItem.svelte';
 
@@ -49,17 +45,22 @@
 		selectedPortfolioFilter = defaultSelectedPortfolioFilter;
 	}
 
+	// bound to FE; ideally need a 'filterTypes' so we can allow for
+	// multi metadata filters and get away from this ugly hack to
+	// search all
+	$: filteredPortfolioItems = portfolioItems.filter((item) => {
+		if (selectedPortfolioFilter === '*') return true;
+		else return item.filterType === selectedPortfolioFilter;
+	});
+
+	// click/keypress handlers
 	let filterSelectionClick = (activeFilter: string, event: MouseEvent): void => {
 		selectedPortfolioFilter = activeFilter;
 		console.log('filterSelectionClick ' + activeFilter);
-
-		// AOS.refresh();
 	};
 	let filterSelectionKeyPress = (activeFilter: string, event: KeyboardEvent): void => {
 		selectedPortfolioFilter = activeFilter;
 		console.log('filterSelectionKeyPress ' + activeFilter);
-
-		// AOS.refresh();
 	};
 
 	onMount(async () => {});
@@ -92,7 +93,7 @@
 			</div>
 		</div>
 
-		{#each portfolioItems as item, i (item.portfolioSlug)}
+		{#each filteredPortfolioItems as item, i (item.portfolioSlug)}
 			<PortfolioSectionItem
 				filterType="{item.filterType}"
 				imagePath="{item.imagePath}"
