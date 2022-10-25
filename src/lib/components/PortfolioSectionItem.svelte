@@ -1,7 +1,9 @@
 <script lang="ts">
+	import 'bootstrap/dist/css/bootstrap.css';
+
 	export let filterType: string; //filter-web, filter-app, filter-car
 	export let imagePath: string;
-	export let portfolioSlug: string;
+	export let portfolioSlug: number;
 </script>
 
 <div class="col-lg-4 col-md-6 portfolio-item {filterType}">
@@ -17,6 +19,10 @@
 
 <style lang="scss">
 	:global(#portfolio) {
+		.portfolio-item {
+			margin-bottom: 30px;
+		}
+
 		.portfolio-wrap {
 			transition: 0.3s;
 			position: relative;
