@@ -32,11 +32,11 @@
 	];
 
 	let selectedFilter: string;
-	let filterSelectionClick = (activeFilter: string): any | null => {
+	let filterSelectionClick = (activeFilter: string, event: MouseEvent): any | null => {
 		selectedFilter = activeFilter;
 		console.log(activeFilter);
 	};
-	let filterSelectionKeyPress = (activeFilter: string): any | null => {
+	let filterSelectionKeyPress = (activeFilter: string, event: KeyboardEvent): any | null => {
 		selectedFilter = activeFilter;
 	};
 
@@ -70,29 +70,29 @@
 					<li
 						data-filter="*"
 						class:filter-active="{selectedFilter === '*'}"
-						on:keypress="{filterSelectionKeyPress('*')}"
-						on:click="{filterSelectionClick('*')}">
+						on:keypress="{(event) => filterSelectionKeyPress('*', event)}"
+						on:click="{(event) => filterSelectionClick('*', event)}">
 						All
 					</li>
 					<li
 						data-filter=".filter-app"
 						class:filter-active="{selectedFilter === 'filter-app'}"
-						on:keypress="{filterSelectionKeyPress('filter-app')}"
-						on:click="{filterSelectionClick('filter-app')}">
+						on:keypress="{(event) => filterSelectionKeyPress('filter-app', event)}"
+						on:click="{(event) => filterSelectionClick('filter-app', event)}">
 						App
 					</li>
 					<li
 						data-filter=".filter-card"
 						class:filter-active="{selectedFilter === 'filter-card'}"
-						on:keypress="{filterSelectionKeyPress('filter-card')}"
-						on:click="{filterSelectionClick('filter-card')}">
+						on:keypress="{(event) => filterSelectionKeyPress('filter-card', event)}"
+						on:click="{(event) => filterSelectionClick('filter-card', event)}">
 						Card
 					</li>
 					<li
 						data-filter=".filter-web"
 						class:filter-active="{selectedFilter === 'filter-web'}"
-						on:keypress="{filterSelectionKeyPress('filter-web')}"
-						on:click="{filterSelectionClick('filter-web')}">
+						on:keypress="{(event) => filterSelectionKeyPress('filter-web', event)}"
+						on:click="{(event) => filterSelectionClick('filter-web', event)}">
 						Web
 					</li>
 				</ul>
