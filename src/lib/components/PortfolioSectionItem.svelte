@@ -1,4 +1,5 @@
 <script lang="ts">
+	import 'boxicons/css/boxicons.css';
 	import 'bootstrap/dist/css/bootstrap.css';
 
 	export let filterType: string; //filter-web, filter-app, filter-car
