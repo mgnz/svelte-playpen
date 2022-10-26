@@ -93,12 +93,14 @@
 			</div>
 		</div>
 
-		{#each filteredPortfolioItems as item, i (item.portfolioSlug)}
-			<PortfolioSectionItem
-				filterType="{item.filterType}"
-				imagePath="{item.imagePath}"
-				portfolioSlug="{item.portfolioSlug}" />
-		{/each}
+		<div class="row portfolio-container" data-aos="fade-up" data-aos-delay="100">
+			{#each filteredPortfolioItems as item, i (item.portfolioSlug)}
+				<PortfolioSectionItem
+					filterType="{item.filterType}"
+					imagePath="{item.imagePath}"
+					portfolioSlug="{item.portfolioSlug}" />
+			{/each}
+		</div>
 	</div>
 </section>
 
