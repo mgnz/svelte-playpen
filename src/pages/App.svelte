@@ -11,6 +11,7 @@
 	import ResumeSection from '../lib/components/ResumeSection.svelte';
 	import PortfolioSection from '../lib/components/PortfolioSection.svelte';
 	import ServicesSection from '../lib/components/ServicesSection.svelte';
+	import TestimonialsSection from '../lib/components/TestimonialsSection.svelte';
 
 	import AOS from 'aos';
 	import 'aos/dist/aos.css'; // You can also use <link> for styles
@@ -53,6 +54,8 @@
 	<PortfolioSection />
 
 	<ServicesSection />
+
+	<TestimonialsSection />
 </main>
 
 <style lang="scss">
