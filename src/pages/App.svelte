@@ -13,6 +13,7 @@
 	import ServicesSection from '../lib/components/ServicesSection.svelte';
 	import TestimonialsSection from '../lib/components/TestimonialsSection.svelte';
 	import ContactSection from '../lib/components/ContactSection.svelte';
+	import ToggleBackToTopComponent from '../lib/components/ToggleBackToTopComponent.svelte';
 
 	import AOS from 'aos';
 	import 'aos/dist/aos.css'; // You can also use <link> for styles
@@ -61,7 +62,10 @@
 	<ContactSection />
 </main>
 
+<ToggleBackToTopComponent />
+
 <style lang="scss">
+	@import '../styles/base.scss';
 	@import '../styles/app.scss';
 
 	#main {
