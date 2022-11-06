@@ -33,4 +33,102 @@
 </div>
 
 <style lang="scss">
+	:global(#contact) {
+		.php-email-form {
+			width: 100%;
+			padding: 30px;
+			background: #fff;
+			box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.12);
+
+			.form-group {
+				padding-bottom: 8px;
+			}
+
+			.validate {
+				display: none;
+				color: red;
+				margin: 0 0 15px 0;
+				font-weight: 400;
+				font-size: 13px;
+			}
+
+			.error-message {
+				display: none;
+				color: #fff;
+				background: #ed3c0d;
+				text-align: left;
+				padding: 15px;
+				font-weight: 600;
+
+				br + br {
+					margin-top: 25px;
+				}
+			}
+
+			.sent-message {
+				display: none;
+				color: #fff;
+				background: #18d26e;
+				text-align: center;
+				padding: 15px;
+				font-weight: 600;
+			}
+
+			.loading {
+				display: none;
+				background: #fff;
+				text-align: center;
+				padding: 15px;
+
+				&:before {
+					content: '';
+					display: inline-block;
+					border-radius: 50%;
+					width: 24px;
+					height: 24px;
+					margin: 0 10px -6px 0;
+					border: 3px solid #18d26e;
+					border-top-color: #eee;
+					-webkit-animation: animate-loading 1s linear infinite;
+					animation: animate-loading 1s linear infinite;
+				}
+			}
+
+			.form-group {
+				margin-bottom: 15px;
+			}
+
+			label {
+				padding-bottom: 8px;
+			}
+
+			input,
+			textarea {
+				border-radius: 0;
+				box-shadow: none;
+				font-size: 14px;
+			}
+
+			input {
+				height: 44px;
+			}
+
+			textarea {
+				padding: 10px 15px;
+			}
+
+			button[type='submit'] {
+				background: #149ddd;
+				border: 0;
+				padding: 10px 24px;
+				color: #fff;
+				transition: 0.4s;
+				border-radius: 4px;
+
+				&:hover {
+					background: #37b3ed;
+				}
+			}
+		}
+	}
 </style>
