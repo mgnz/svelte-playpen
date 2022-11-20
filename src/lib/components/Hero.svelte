@@ -4,7 +4,7 @@
 	import { onMount } from 'svelte';
 	import Typed from 'typed.js';
 
-	import heroBackground from '../../assets/hero-bg.jpg';
+	import heroBackgroundImage from '../../assets/hero-bg.jpg';
 
 	var options = {
 		strings: ['Designer', 'Developer', 'Freelancer', 'Photographer'],
@@ -21,9 +21,8 @@
 	id="hero"
 	class="d-flex flex-column justify-content-center align-items-center"
 	style="
-		background: url('{heroBackground}') top center;
+		--hero-background-image: url('{heroBackgroundImage}');
 		">
-	<!-- usage of inline style is naughty; but i have no idea how to pass the profile image down to the style -->
 	<div class="hero-container" data-aos="fade-in">
 		<h1>Alex Smith</h1>
 		<p>I'm <span class="typed"></span></p>
@@ -37,7 +36,7 @@
 	#hero {
 		width: 100%;
 		height: 100vh;
-		//background: url('{heroBackground}') top center;
+		background: var(--hero-background-image) top center;
 		background-size: cover;
 
 		&:before {
@@ -93,11 +92,11 @@
 				line-height: 36px;
 			}
 
-			// h2 {
-			// 	font-size: 18px;
-			// 	line-height: 24px;
-			// 	margin-bottom: 30px;
-			// }
+			h2 {
+				font-size: 18px;
+				line-height: 24px;
+				margin-bottom: 30px;
+			}
 		}
 	}
 </style>
