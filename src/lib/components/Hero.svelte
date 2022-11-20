@@ -1,4 +1,6 @@
 <script lang="ts">
+	import 'bootstrap/dist/css/bootstrap.css';
+
 	import { onMount } from 'svelte';
 	import Typed from 'typed.js';
 
@@ -19,10 +21,7 @@
 	id="hero"
 	class="d-flex flex-column justify-content-center align-items-center"
 	style="
-		width: 100%;
-		height: 100vh;
 		background: url('{heroBackground}') top center;
-		background-size: cover;
 		">
 	<!-- usage of inline style is naughty; but i have no idea how to pass the profile image down to the style -->
 	<div class="hero-container" data-aos="fade-in">
@@ -36,10 +35,10 @@
 	@import '../../styles/app.scss';
 
 	#hero {
-		//width: 100%;
-		//height: 100vh;
+		width: 100%;
+		height: 100vh;
 		//background: url('{heroBackground}') top center;
-		//background-size: cover;
+		background-size: cover;
 
 		&:before {
 			content: '';
