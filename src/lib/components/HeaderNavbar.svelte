@@ -1,6 +1,30 @@
 <script lang="ts">
 	import 'boxicons/css/boxicons.css';
 	import 'bootstrap/dist/css/bootstrap.css';
+
+	import { onMount } from 'svelte';
+
+	import { select } from '../utility/select';
+	import { onscroll } from '../utility/onscroll';
+
+	onMount(async () => {
+		let navbarlinks = select('#navbar .scrollto', true);
+		const navbarlinksActive = () => {
+			let position = window.scrollY + 200;
+			navbarlinks.forEach((navbarlink: any) => {
+				if (!navbarlink.hash) return;
+				let section = select(navbarlink.hash);
+				if (!section) return;
+				if (position >= section.offsetTop && position <= section.offsetTop + section.offsetHeight) {
+					navbarlink.classList.add('active');
+				} else {
+					navbarlink.classList.remove('active');
+				}
+			});
+		};
+
+		onscroll(document, navbarlinksActive);
+	});
 </script>
 
 <nav id="navbar" class="nav-menu navbar">
