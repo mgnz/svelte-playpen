@@ -8,10 +8,10 @@
 	import { onscroll } from '../utility/onscroll';
 
 	onMount(async () => {
-		let navbarlinks = select('#navbar .scrollto', true);
+		let navbarlinks: NodeListOf<HTMLAnchorElement> = select('#navbar .scrollto', true);
 		const navbarlinksActive = () => {
 			let position = window.scrollY + 200;
-			navbarlinks.forEach((navbarlink: any) => {
+			navbarlinks.forEach((navbarlink: HTMLAnchorElement) => {
 				if (!navbarlink.hash) return;
 				let section = select(navbarlink.hash);
 				if (!section) return;
