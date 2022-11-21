@@ -1,5 +1,6 @@
 <script lang="ts">
 	import 'bootstrap/dist/css/bootstrap.css';
+
 	import HeaderNavbar from './HeaderNavbar.svelte';
 	import HeaderProfile from './HeaderProfile.svelte';
 </script>
@@ -31,6 +32,14 @@
 	@media (max-width: $global-width-lrg) {
 		#header {
 			left: -300px;
+		}
+	}
+
+	:global(.mobile-nav-active) {
+		overflow: hidden;
+
+		#header {
+			left: 0;
 		}
 	}
 </style>
