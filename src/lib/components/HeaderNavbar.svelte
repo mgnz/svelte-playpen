@@ -6,15 +6,18 @@
 
 	import { select } from '../utility/select';
 	import { onscroll } from '../utility/onscroll';
+	import { scrollto } from '../utility/scrollto';
 
 	onMount(async () => {
-		let navbarlinks: NodeListOf<HTMLAnchorElement> = select('#navbar .scrollto', true);
-		const navbarlinksActive = () => {
+		let navbarLinks: NodeListOf<HTMLAnchorElement> = select('#navbar .scrollto', true);
+		const activateNavbarLink = () => {
 			let position = window.scrollY + 200;
-			navbarlinks.forEach((navbarlink: HTMLAnchorElement) => {
+			navbarLinks.forEach((navbarlink: HTMLAnchorElement) => {
 				if (!navbarlink.hash) return;
+
 				let section = select(navbarlink.hash);
 				if (!section) return;
+
 				if (position >= section.offsetTop && position <= section.offsetTop + section.offsetHeight) {
 					navbarlink.classList.add('active');
 				} else {
@@ -23,29 +26,52 @@
 			});
 		};
 
-		onscroll(document, navbarlinksActive);
+		onscroll(document, activateNavbarLink);
 	});
+
+	function handleClick(event: any) {
+		if (select(event.currentTarget.hash)) {
+			event.preventDefault();
+
+			let body = select('body');
+			if (body.classList.contains('mobile-nav-active')) {
+				body.classList.remove('mobile-nav-active');
+
+				let navbarToggle = select('.mobile-nav-toggle');
+				navbarToggle.classList.toggle('bi-list');
+				navbarToggle.classList.toggle('bi-x');
+			}
+
+			scrollto(event.currentTarget.hash);
+		}
+	}
 </script>
 
 <nav id="navbar" class="nav-menu navbar">
 	<ul>
 		<li>
-			<a href="#hero" class="nav-link scrollto active"> <i class="bx bx-home"></i><span>Home</span></a>
+			<a href="#hero" class="nav-link scrollto" on:click="{(event) => handleClick(event)}">
+				<i class="bx bx-home"></i><span>Home</span></a>
 		</li>
 		<li>
-			<a href="#about" class="nav-link scrollto"><i class="bx bx-user"></i><span>About</span></a>
+			<a href="#about" class="nav-link scrollto" on:click|preventDefault="{(event) => handleClick(event)}"
+				><i class="bx bx-user"></i><span>About</span></a>
 		</li>
 		<li>
-			<a href="#resume" class="nav-link scrollto"><i class="bx bx-file-blank"></i><span>Resume</span></a>
+			<a href="#resume" class="nav-link scrollto" on:click|preventDefault="{(event) => handleClick(event)}"
+				><i class="bx bx-file-blank"></i><span>Resume</span></a>
 		</li>
 		<li>
-			<a href="#portfolio" class="nav-link scrollto"> <i class="bx bx-book-content"></i><span>Portfolio</span></a>
+			<a href="#portfolio" class="nav-link scrollto" on:click|preventDefault="{(event) => handleClick(event)}">
+				<i class="bx bx-book-content"></i><span>Portfolio</span></a>
 		</li>
 		<li>
-			<a href="#services" class="nav-link scrollto"> <i class="bx bx-server"></i><span>Services</span></a>
+			<a href="#services" class="nav-link scrollto" on:click|preventDefault="{(event) => handleClick(event)}">
+				<i class="bx bx-server"></i><span>Services</span></a>
 		</li>
 		<li>
-			<a href="#contact" class="nav-link scrollto"><i class="bx bx-envelope"></i> <span>Contact</span></a>
+			<a href="#contact" class="nav-link scrollto" on:click|preventDefault="{(event) => handleClick(event)}"
+				><i class="bx bx-envelope"></i> <span>Contact</span></a>
 		</li>
 	</ul>
 </nav>
